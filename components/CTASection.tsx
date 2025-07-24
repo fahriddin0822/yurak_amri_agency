@@ -34,21 +34,22 @@ const CTASection = () => {
             </div>
 
             {/* Quick Amount Buttons */}
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
-              {quickAmounts.map((amount) => (
-                <button
-                  key={amount}
-                  onClick={() => setDonationAmount(amount.toString())}
-                  className={`py-3 px-4 rounded-lg border-2 transition-all font-semibold ${
-                    donationAmount === amount.toString()
-                      ? "border-yellow-500 bg-yellow-50 text-yellow-700"
-                      : "border-gray-200 hover:border-yellow-300 text-gray-700"
-                  }`}
-                >
-                  {amount}
-                </button>
-              ))}
-            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
+  {quickAmounts.map((amount) => (
+    <button
+      key={amount}
+      onClick={() => setDonationAmount(amount.toString())}
+      className={`py-3 px-4 rounded-lg border-2 overflow-hidden transition-all font-semibold text-sm sm:text-base ${
+        donationAmount === amount.toString()
+          ? "border-yellow-500 bg-yellow-50 text-yellow-700"
+          : "border-gray-200 hover:border-yellow-300 text-gray-700"
+      }`}
+    >
+      {amount}
+    </button>
+  ))}
+</div>
+
 
             {/* Custom Amount Input */}
             <div className="mb-6">
