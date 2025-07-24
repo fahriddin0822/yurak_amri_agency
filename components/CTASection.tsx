@@ -16,39 +16,47 @@ const CTASection = () => {
           <div className="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
             Bizga qo'shiling
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            🧡 Bugun bir yurakni iliq tuting va o'zingizni o'zgartiring
+          {/* <div className="wrapper flex justify-center items-center"> */}
+
+          <h2 className="flex items-center gap-4 text-4xl md:text-5xl font-bold text-white mb-6">
+            <div className="w-12 h-12 md:w-16 md:h-16 overflow-hidden">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+            </div>
+            Bugun bir yurakni iliq tuting va o'zingizni o'zgartiring
           </h2>
-          <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-8">
-            Quyidagi tugma yordamida xayriya qiling — kartangiz bilan bevosita, xavfsiz va shaffof.
-          </p>
+
         </div>
+        <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-8">
+          Quyidagi tugma yordamida xayriya qiling — kartangiz bilan bevosita, xavfsiz va shaffof.
+        </p>
+        {/* </div> */}
 
         <div className="max-w-2xl mx-auto">
           {/* Main Donation Form */}
           <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 animate-scale-in">
             <div className="text-center mb-6">
-              <FiHeart className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <div className="wrapper w-16 h-16 overflow-hidden m-auto">
+                <img src="/logo.png" alt="Logo" className="w-full h-auto object-contain" />
+              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Xayriya qiling</h3>
               <p className="text-gray-600">Har bir hissa bir umid paydo qiladi </p>
             </div>
 
             {/* Quick Amount Buttons */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
-  {quickAmounts.map((amount) => (
-    <button
-      key={amount}
-      onClick={() => setDonationAmount(amount.toString())}
-      className={`py-3 px-4 rounded-lg border-2 overflow-hidden transition-all font-semibold text-sm sm:text-base ${
-        donationAmount === amount.toString()
-          ? "border-yellow-500 bg-yellow-50 text-yellow-700"
-          : "border-gray-200 hover:border-yellow-300 text-gray-700"
-      }`}
-    >
-      {amount}
-    </button>
-  ))}
-</div>
+              {quickAmounts.map((amount) => (
+                <button
+                  key={amount}
+                  onClick={() => setDonationAmount(amount.toString())}
+                  className={`py-3 px-4 rounded-lg border-2 overflow-hidden transition-all font-semibold text-sm sm:text-base ${donationAmount === amount.toString()
+                    ? "border-yellow-500 bg-yellow-50 text-yellow-700"
+                    : "border-gray-200 hover:border-yellow-300 text-gray-700"
+                    }`}
+                >
+                  {amount}
+                </button>
+              ))}
+            </div>
 
 
             {/* Custom Amount Input */}
@@ -74,8 +82,8 @@ const CTASection = () => {
 
             {/* Payment Methods */}
             <div className="text-center text-sm text-gray-600 mb-6">
-              <p className="mb-2">💳 Accepted: UzCard | Humo | Visa | MasterCard</p>
-              <p>📎 Card number: 8600 XXXX XXXX XXXX</p>
+              <p className="mb-2">💳 Qabul qilinadi: UzCard | Humo | Visa | MasterCard</p>
+              <p>📎 Karta raqami: 8600 XXXX XXXX XXXX</p>
             </div>
 
             <div className="border-t pt-6">
@@ -108,8 +116,8 @@ const CTASection = () => {
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Oylik sovg'ani sozlang</h4>
                   <p className="text-gray-600 mb-4">
-                    Kichik oylik hissa muhtoj oilalarga doimiy yordam berishi mumkin. Hatto oyiga 10 000 so'm 
-sezilarli farq qilishi mumkin.
+                    Kichik oylik hissa muhtoj oilalarga doimiy yordam berishi mumkin. Hatto oyiga 10 000 so'm
+                    sezilarli farq qilishi mumkin.
                   </p>
 
                   <div className="flex items-center space-x-3 mb-4">

@@ -21,7 +21,7 @@ const Hero = () => {
       subtitle: "Hayotni o'zgartiring, o'zingizni o'zgartiring",
       description:
         "Oʻzbekiston boʻylab jamiyatlarda oʻzgarishlarni amalga oshirayotgan minglab odamlarga qoʻshiling. Har bir xayriya umid uyg'otadi.",
-      image: "https://uz.usembassy.gov/wp-content/uploads/sites/78/SMICA-scaled.jpg",
+      image: "https://storage.kun.uz/source/6/RlWmyIAIe6JJGzOq3GHMJZJPd0EtBOPE.jpg",
     },
     {
       title: "Uylar qurish, umid qurish",
@@ -34,7 +34,7 @@ const Hero = () => {
       title: "15 000+ oila.",
       subtitle: "Biz doim yordamga muhtoj oilalarni ro'yhatga olib boramiz va ularning soni hozirda 15 000 dan oshdi.",
       description: "Yordam uchun albatta haqiaqiy haqdorlarni tanlab olamiz.",
-      image: "https://lh6.googleusercontent.com/proxy/JuF0Wq7SKjZhR8Tz2uTmF4vQCbEVRhlnj38B_xQryHxImEGWCK8je8W6SdgzRVnWBYMRh6zv",
+      image: "./hero.jpeg",
     },
   ]
 

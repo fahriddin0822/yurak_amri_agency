@@ -87,11 +87,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-300">
                 <FiPhone className="w-5 h-5 mr-3 text-yellow-500" />
-                <span>+998 (90) 123-45-67</span>
+                <a href="tel:+998901234567" className="text-gray-300 hover:underline">
+                  +998 (90) 123-45-67
+                </a>
               </li>
               <li className="flex items-center text-gray-300">
                 <FiMail className="w-5 h-5 mr-3 text-yellow-500" />
-                <span>info@yurakamri.uz</span>
+                <a href="mailto:info@yurakamri.uz" className="text-gray-300 hover:underline">
+                  info@yurakamri.uz
+                </a>
               </li>
               <li className="flex items-start text-gray-300">
                 <FiMapPin className="w-5 h-5 mr-3 mt-1 text-yellow-500" />
