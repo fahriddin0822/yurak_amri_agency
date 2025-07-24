@@ -188,7 +188,7 @@ const FeaturedCampaigns = () => {
                   </div>
 
                   <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center">
-                    View Details
+                    Batafsil
                     <FiArrowRight className="ml-2 w-4 h-4" />
                   </button>
                 </div>
@@ -292,12 +292,12 @@ const FeaturedCampaigns = () => {
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 mb-4">Xayriya qiling</h3>
                         <div className="grid grid-cols-2 gap-2 mb-4">
-                          {[25, 50, 100, 250].map((amount) => (
+                          {[25000, 50000, 100000, 250000].map((amount) => (
                             <button
                               key={amount}
                               className="border border-gray-300 hover:border-yellow-500 hover:bg-yellow-50 py-2 px-4 rounded-lg text-center transition-colors"
                             >
-                              ${amount}
+                              {amount}
                             </button>
                           ))}
                         </div>
