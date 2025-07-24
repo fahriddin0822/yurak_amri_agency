@@ -23,10 +23,10 @@ const AdminDashboard = () => {
   const [posts, setPosts] = useState<Post[]>([
     {
       id: "1",
-      title: "Emergency Winter Relief for Displaced Families",
-      category: "Emergency Aid",
-      description: "Providing warm clothing, heating, and shelter for 200 families displaced by recent floods.",
-      fullDescription: "The recent floods in Sirdaryo region have displaced over 200 families...",
+      title: "Ko'chirilgan oilalar uchun qishki favqulodda yordam",
+      category: "Favqulodda yordam",
+      description: "200 ta ko'chirilgan oilalar uchun iliq kiyim, isitish va boshpana ta'minlash.",
+      fullDescription: "Sirdaryo viloyatidagi so'nggi toshqinlar 200 dan ortiq oilani ko'chirishga majbur qildi...",
       image: "/placeholder.svg?height=200&width=300",
       goalAmount: 25000,
       raisedAmount: 18500,

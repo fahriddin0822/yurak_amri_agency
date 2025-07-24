@@ -19,14 +19,22 @@ interface Campaign {
 }
 
 const FeaturedCampaigns = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsOpen(false)
+  }
   const [campaigns] = useState<Campaign[]>([
     {
       id: "1",
-      title: "Emergency Winter Relief for Displaced Families",
-      category: "Emergency Aid",
-      description: "Providing warm clothing, heating, and shelter for 200 families displaced by recent floods.",
+      title: "Ko'chirilgan oilalar uchun qishki favqulodda yordam",
+      category: "Favqulodda yordam",
+      description: "200 ta ko'chirilgan oilalar uchun iliq kiyim, isitish va boshpana ta'minlash.",
       fullDescription:
-        "The recent floods in Sirdaryo region have displaced over 200 families, leaving them without adequate shelter as winter approaches. These families urgently need warm clothing, blankets, portable heaters, and temporary shelter materials. Our emergency response team is ready to deploy, but we need your support to provide comprehensive winter relief packages for each family.",
+        "Sirdaryo viloyatidagi so'nggi toshqinlar 200 dan ortiq oilani ko'chirishga majbur qildi, ularni qish yaqinlashganda yetarli boshpanasiz qoldirdi. Ushbu oilalar zudlik bilan iliq kiyim, ko'rpa-to'shak, portativ isitgichlar va vaqtinchalik boshpana materiallariga muhtoj. Favqulodda yordam ko'rsatish guruhi tayyor, lekin har bir oilaga kompleks qishki yordam paketlarini taqdim etish uchun sizning yordamingiz kerak.",
       image: "/placeholder.svg?height=400&width=600",
       video: "/placeholder.mp4?query=winter relief distribution",
       goalAmount: 25000,
@@ -37,11 +45,11 @@ const FeaturedCampaigns = () => {
     },
     {
       id: "2",
-      title: "School Reconstruction in Rural Kashkadarya",
-      category: "Education",
-      description: "Rebuilding a school that serves 300 children in a remote village.",
+      title: "Qashqadaryo qishlog'idagi maktab rekonstruktsiyasi",
+      category: "Ta'lim",
+      description: "Uzoq qishloqda 300 nafar bolaga xizmat qiluvchi maktabni qayta qurish.",
       fullDescription:
-        "The only school in Yangiobod village was severely damaged during the spring storms, leaving 300 children without access to education. The community has been using a temporary tent structure, but with winter approaching, we need to rebuild the school with proper classrooms, heating, and modern facilities. This project will restore education access for an entire generation of children.",
+        "Yangiobod qishlog'idagi yagona maktab bahor toshqinlari paytida jiddiy zarar ko'rdi, 300 nafar bolani ta'limdan mahrum qoldirdi. Jamiyat vaqtincha chodir tuzilmasidan foydalanmoqda, lekin qish yaqinlashganda, biz maktabni to'g'ri sinflar, isitish va zamonaviy qulayliklar bilan qayta qurishimiz kerak. Ushbu loyiha butun avlod bolalariga ta'lim olish imkoniyatini tiklaydi.",
       image: "/placeholder.svg?height=400&width=600",
       goalAmount: 45000,
       raisedAmount: 32000,
@@ -51,11 +59,11 @@ const FeaturedCampaigns = () => {
     },
     {
       id: "3",
-      title: "Medical Equipment for Rural Clinic",
-      category: "Healthcare",
-      description: "Essential medical equipment for a clinic serving 5,000 residents.",
+      title: "Tibbiy uskunalar uchun qishloq klinikasi",
+      category: "Sog'liqni saqlash",
+      description: "5,000 nafar aholi uchun zarur tibbiy uskunalar.",
       fullDescription:
-        "The rural clinic in Guliston serves over 5,000 residents but lacks basic medical equipment. We aim to provide an ultrasound machine, blood pressure monitors, a sterilization unit, and emergency medical supplies. This equipment will enable the clinic to provide better healthcare services and potentially save lives in medical emergencies.",
+        "Gulistondagi qishloq klinikasi 5,000 dan ortiq aholi uchun xizmat qiladi, lekin asosiy tibbiy uskunalardan mahrum. Biz ultratovush apparati, qon bosimini o'lchash moslamalari, sterilizatsiya bloki va favqulodda tibbiy yordam vositalarini taqdim etishni maqsad qilmoqdamiz. Ushbu uskunalar klinikaga yaxshiroq sog'liqni saqlash xizmatlarini ko'rsatishga va tibbiy favqulodda vaziyatlarda hayotlarni saqlashga imkon beradi.",
       image: "/placeholder.svg?height=400&width=600",
       goalAmount: 15000,
       raisedAmount: 15000,
@@ -65,11 +73,11 @@ const FeaturedCampaigns = () => {
     },
     {
       id: "4",
-      title: "Clean Water Project for Mountain Village",
-      category: "Infrastructure",
-      description: "Installing a clean water system for 150 families in a remote mountain village.",
+      title: "Togʻtepa qishlog'i uchun toza suv loyihasi",
+      category: "Infratuzilma",
+      description: "Uzoq tog' qishlog'ida 150 ta oilaga toza suv tizimini o'rnatish.",
       fullDescription:
-        "Families in Togʻtepa village have been walking 3 kilometers daily to fetch water from a distant well. We plan to install a solar-powered water pumping system and distribution network that will bring clean water directly to the village. This project will save hours of daily labor and provide safe drinking water for 150 families.",
+        "Togʻtepa qishlog'idagi oilalar har kuni uzoqdan suv olib kelish uchun 3 kilometr yurishadi. Biz quyosh energiyasi bilan ishlaydigan suv nasos tizimini va taqsimot tarmog'ini o'rnatishni rejalashtirmoqdamiz, bu toza suvni to'g'ridan-to'g'ri qishloqqa olib keladi. Ushbu loyiha har kuni mehnat soatlarini tejaydi va 150 ta oila uchun xavfsiz ichimlik suvi ta'minlaydi.",
       image: "/placeholder.svg?height=400&width=600",
       goalAmount: 35000,
       raisedAmount: 8750,
@@ -98,9 +106,9 @@ const FeaturedCampaigns = () => {
       <section id="campaigns" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Featured Campaigns</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Yordamga muhtojlar</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join thousands of donors making a real difference in communities across Uzbekistan
+              Yordamingizga haqdor insonlarga befarq bo'lmang
             </p>
           </div>
 
@@ -126,7 +134,7 @@ const FeaturedCampaigns = () => {
                   {campaign.isCompleted && (
                     <div className="absolute top-4 right-4">
                       <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Completed
+                        Tugallandi
                       </span>
                     </div>
                   )}
@@ -140,7 +148,7 @@ const FeaturedCampaigns = () => {
                   <div className="mb-4">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium text-gray-700">
-                        ${campaign.raisedAmount.toLocaleString()} raised
+                        ${campaign.raisedAmount.toLocaleString()} yig'ildi
                       </span>
                       <span className="text-sm text-gray-500">${campaign.goalAmount.toLocaleString()} goal</span>
                     </div>
@@ -154,12 +162,12 @@ const FeaturedCampaigns = () => {
                     </div>
                     {campaign.isCompleted ? (
                       <div className="text-center mt-2">
-                        <span className="text-green-600 font-semibold">✅ Goal Completed!</span>
+                        <span className="text-green-600 font-semibold">✅ Maqsadga erishildi!</span>
                       </div>
                     ) : (
                       <div className="text-center mt-2">
                         <span className="text-gray-600 text-sm">
-                          {getProgressPercentage(campaign.raisedAmount, campaign.goalAmount).toFixed(0)}% funded
+                          {getProgressPercentage(campaign.raisedAmount, campaign.goalAmount).toFixed(0)}% bo'ldi
                         </span>
                       </div>
                     )}
@@ -197,7 +205,7 @@ const FeaturedCampaigns = () => {
             {/* Header */}
             <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b z-10">
               <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 className="text-xl font-bold text-gray-900">Campaign Details</h1>
+                <h1 className="text-xl font-bold text-gray-900">Batafsil</h1>
                 <button onClick={closeCampaignDetails} className="text-gray-500 hover:text-gray-700 text-2xl">
                   ×
                 </button>
@@ -228,7 +236,7 @@ const FeaturedCampaigns = () => {
                   {/* Video if available */}
                   {selectedCampaign.video && (
                     <div className="mb-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">Campaign Video</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">Video lavha</h3>
                       <div className="video-container rounded-2xl overflow-hidden">
                         <video controls className="w-full">
                           <source src={selectedCampaign.video} type="video/mp4" />
@@ -247,7 +255,7 @@ const FeaturedCampaigns = () => {
                         <span className="text-2xl font-bold text-gray-900">
                           ${selectedCampaign.raisedAmount.toLocaleString()}
                         </span>
-                        <span className="text-gray-500">of ${selectedCampaign.goalAmount.toLocaleString()}</span>
+                        <span className="text-gray-500">${selectedCampaign.goalAmount.toLocaleString()}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
                         <div
@@ -261,7 +269,7 @@ const FeaturedCampaigns = () => {
                       </div>
                       <div className="text-sm text-gray-600">
                         {getProgressPercentage(selectedCampaign.raisedAmount, selectedCampaign.goalAmount).toFixed(0)}%
-                        funded
+                        bo'ldi
                       </div>
                     </div>
 
@@ -269,12 +277,12 @@ const FeaturedCampaigns = () => {
                     <div className="space-y-4 mb-6">
                       <div className="flex items-center text-gray-600">
                         <FiUsers className="w-5 h-5 mr-3" />
-                        <span>{selectedCampaign.beneficiaries} people will benefit</span>
+                        <span>{selectedCampaign.beneficiaries} odam yordam oladi</span>
                       </div>
                       {!selectedCampaign.isCompleted && (
                         <div className="flex items-center text-gray-600">
                           <FiCalendar className="w-5 h-5 mr-3" />
-                          <span>{selectedCampaign.daysLeft} days remaining</span>
+                          <span>{selectedCampaign.daysLeft} kun qoldi</span>
                         </div>
                       )}
                     </div>
@@ -282,7 +290,7 @@ const FeaturedCampaigns = () => {
                     {/* Donation Section */}
                     {!selectedCampaign.isCompleted ? (
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-4">Make a Donation</h3>
+                        <h3 className="text-lg font-bold text-gray-900 mb-4">Xayriya qiling</h3>
                         <div className="grid grid-cols-2 gap-2 mb-4">
                           {[25, 50, 100, 250].map((amount) => (
                             <button
@@ -295,22 +303,22 @@ const FeaturedCampaigns = () => {
                         </div>
                         <input
                           type="number"
-                          placeholder="Custom amount"
+                          placeholder="Miqdorani kiriting"
                           className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:border-yellow-500"
                         />
-                        <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center">
+                        <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center" onClick={() => scrollToSection("donate")}>
                           <FiHeart className="mr-2 w-5 h-5" />
-                          Donate Now
+                          Hayriya
                         </button>
                         <p className="text-xs text-gray-500 mt-2 text-center">
-                          💳 Accepted: UzCard | Humo | Visa | MasterCard
+                          💳 Qabul qilinadi: UzCard | Humo | Visa | MasterCard
                         </p>
                       </div>
                     ) : (
                       <div className="text-center">
                         <div className="text-green-600 text-6xl mb-4">✅</div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-2">Campaign Completed!</h3>
-                        <p className="text-gray-600">Thank you to all donors who made this campaign successful.</p>
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">Loyihani tugatildi!</h3>
+                        <p className="text-gray-600">Ushbu kampaniyani muvaffaqiyatli amalga oshirgan barcha xayriya qiluvchilarga rahmat.</p>
                       </div>
                     )}
                   </div>

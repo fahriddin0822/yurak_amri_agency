@@ -47,19 +47,20 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer group" onClick={scrollToTop}>
-            <FiHeart className="h-8 w-8 text-yellow-500 group-hover:text-yellow-600 transition-colors" />
+            <div className="wrapper w-16 h-16 overflow-hidden">
+              <img src="/logo.png" alt="Logo" className="w-full h-auto object-contain" />
+            </div>
+
             <span
-              className={`ml-2 text-xl font-bold transition-colors group-hover:text-yellow-600 ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}
+              className={`ml-2 text-xl font-bold transition-colors group-hover:text-yellow-600 ${scrolled ? "text-gray-900" : "text-white"
+                }`}
             >
               Yurak Amri
             </span>
@@ -70,33 +71,29 @@ const Navbar = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               <button
                 onClick={() => scrollToSection("results")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${scrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 Natijalar
               </button>
               <button
                 onClick={() => scrollToSection("portfolio")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${scrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 Portfolio
               </button>
               <button
                 onClick={() => scrollToSection("campaigns")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${scrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 Haqdorlar
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${scrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 Sharhlar
               </button>
@@ -113,9 +110,8 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`menu-button inline-flex items-center justify-center p-2 rounded-md transition-colors hover:text-yellow-600 hover:bg-gray-100 ${
-                scrolled ? "text-gray-700" : "text-white"
-              }`}
+              className={`menu-button inline-flex items-center justify-center p-2 rounded-md transition-colors hover:text-yellow-600 hover:bg-gray-100 ${scrolled ? "text-gray-700" : "text-white"
+                }`}
             >
               {isOpen ? <FiX className="block h-6 w-6" /> : <FiMenu className="block h-6 w-6" />}
             </button>

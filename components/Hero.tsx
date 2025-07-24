@@ -5,6 +5,15 @@ import { FiHeart, FiUsers, FiHome, FiDollarSign } from "react-icons/fi"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsOpen(false)
+  }
 
   const slides = [
     {
@@ -44,7 +53,7 @@ const Hero = () => {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-4">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -68,11 +77,11 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">{slides[currentSlide].description}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-              Donate Now
+            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg" onClick={() => scrollToSection("campaigns")}>
+              Hayriya qilish
             </button>
             <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold transition-all">
-              Learn More
+              Batafsil tanishish
             </button>
           </div>
         </div>

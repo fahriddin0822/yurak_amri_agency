@@ -9,33 +9,33 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       id: "portfolio-1",
-      title: "Turkey Earthquake Relief",
-      description: "160 container houses built in earthquake-affected areas",
+      title: "Turkiya zilziladan yordam",
+      description: "160 konteyner uylar zilziladan zarar ko'rgan hududlarda qurilgan",
       fullDescription:
-        "In response to the devastating earthquake in Turkey, we mobilized quickly to provide immediate housing solutions. Working with local authorities and international partners, we constructed 160 fully-equipped container houses, providing safe, dignified housing for over 640 people. Each unit includes basic amenities, heating, and is designed for long-term use.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      stats: { icon: FiHome, number: "160", label: "Houses Built" },
+        "Turkiyadagi vayronkor zilzilaga javoban, biz uy-joy bilan bog'liq zudlik bilan yechimlarni taqdim etish uchun tezda safarbar etdik. Mahalliy hokimiyat organlari va xalqaro hamkorlar bilan hamkorlikda biz 160 ta to‘liq jihozlangan konteyner uylarini qurib, 640 dan ortiq kishini xavfsiz va munosib uy-joy bilan ta’minladik. Har bir birlik asosiy qulayliklarni, isitishni o'z ichiga oladi va uzoq muddatli foydalanish uchun mo'ljallangan.",
+      image: "https://www.toplum.org.tr/en/wp-content/uploads/2024/10/Konteyner-Kentte-Yasam.jpg",
+      video: "https://www.youtube.com/watch?v=8zVEYhUNayg",
+      stats: { icon: FiHome, number: "160", label: "Uylar qurildi" },
     },
     {
       id: "portfolio-2",
-      title: "25+ Housing Project",
-      description: "30-unit housing development in Buka district",
+      title: "25+ Jannatdagi qasrlar",
+      description: "Bo‘ka tumanida 30 uy-joy qurilishi",
       fullDescription:
-        "The '25+' project represents our commitment to sustainable housing solutions. Located in Buka district, this 30-unit development provides permanent housing for families who have been on our aid list for over 25 months. Each unit is a 2-bedroom home with modern amenities, built using eco-friendly materials and designed to last for generations.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/jS4aFq5-91M",
-      stats: { icon: FiUsers, number: "30", label: "Families Housed" },
+        "“25+” loyihasi barqaror uy-joy yechimlariga sodiqligimizni ifodalaydi. Bo‘ka tumanida joylashgan 30 xonadondan iborat ushbu qurilish 25 oydan ortiq vaqt davomida yordam ro‘yxatida bo‘lgan oilalar uchun doimiy uy-joy bilan ta’minlaydi. Har bir xonadon ikki xonali, zamonaviy qulayliklarga ega, ekologik toza materiallardan foydalangan holda qurilgan va avlodlar uchun mo'ljallangan.",
+      image: "/jannatdagi_qasrlar.png",
+      video: "https://www.youtube.com/watch?v=fxE4Bb65wcc&t=56s",
+      stats: { icon: FiUsers, number: "30", label: "Dan ziyod oilalar joylashtirildi" },
     },
     {
       id: "portfolio-3",
-      title: "Permanent Aid Network",
-      description: "15,000+ families receiving ongoing support",
+      title: "Doimiy yordam tarmog'i",
+      description: "15,000+ oilalar doimiy yordam olmoqda",
       fullDescription:
-        "Our permanent aid list represents families who receive regular monthly support including food packages, medical assistance, educational support, and emergency aid. This systematic approach ensures consistent help reaches the most vulnerable families across 13 regions of Uzbekistan, creating a safety net that families can depend on.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/nPQ2CghAVOc",
-      stats: { icon: FiUsers, number: "15,000+", label: "Families Supported" },
+        "Bizning doimiy yordam ro'yxatimiz oziq-ovqat paketlari, tibbiy yordam, ta'lim yordami va favqulodda yordamni o'z ichiga olgan muntazam oylik yordam oladigan oilalarni ifodalaydi. Ushbu tizimli yondashuv 13 ta viloyatda eng zaif oilalarga doimiy yordam ko'rsatishni ta'minlaydi va oilalar ishonishi mumkin bo'lgan xavfsizlik tarmog'ini yaratadi.",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
+      stats: { icon: FiUsers, number: "15,000+", label: "Oilalar doimiy yordam olmoqda" },
     },
   ]
 
@@ -65,25 +65,25 @@ const PortfolioSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            PORTFOLIO / LEADING WORKS
+            Portfolio / Bizining ishlarimiz
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">📍 What Have We Done?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nimalar qildik?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold text-yellow-600 mb-2">160</div>
-              <div className="text-gray-600">Container Houses</div>
+              <div className="text-gray-600">Konteyner uylar</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-yellow-600 mb-2">30</div>
-              <div className="text-gray-600">"25+" Housing Units</div>
+              <div className="text-gray-600">"25+" Jannatdagi qasrlar</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-yellow-600 mb-2">15,000+</div>
-              <div className="text-gray-600">Families on Aid List</div>
+              <div className="text-gray-600">Yordam ro'yxatidagi oilalar</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-yellow-600 mb-2">$1M+</div>
-              <div className="text-gray-600">Donations in 3 Years</div>
+              <div className="text-gray-600">3 yil ichida olingan xayriya</div>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ const PortfolioSection = () => {
 
         <div className="mt-16 text-center">
           <div className="inline-block bg-green-100 text-green-800 px-6 py-3 rounded-full font-semibold">
-            ✅ 100% Accountability and Transparency
+            ✅ 100% Shaffof va Xavfsiz
           </div>
         </div>
       </div>

@@ -12,60 +12,60 @@ const NumbersSection = () => {
       icon: FiTarget,
       emoji: "🎯",
       number: "15,200+",
-      label: "families received assistance",
-      description: "Comprehensive support including food, housing, medical aid, and education",
+      label: "yordam mablag'larini qabul qildilar.",
+      description: "Oziq-ovqat, uy-joy, tibbiy yordam va ta'limni o'z ichiga olgan har tomonlama qo'llab-quvvatlash",
       fullDescription:
-        "Over three years, we have provided direct assistance to more than 15,200 families across Uzbekistan. Our support includes emergency food packages, medical assistance, educational scholarships, housing support, and emergency cash transfers. Each family receives personalized assistance based on their specific needs and circumstances.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/jS4aFq5-91M",
+        "Uch yil davomida biz O‘zbekiston bo‘ylab 15200 dan ortiq oilaga bevosita yordam ko‘rsatdik. Bizning yordamimiz favqulodda oziq-ovqat paketlari, tibbiy yordam, ta'lim stipendiyalari, uy-joy yordami va favqulodda pul o'tkazmalarini o'z ichiga oladi. Har bir oila o'z ehtiyojlari va sharoitlariga qarab shaxsiy yordam oladi.",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
     },
     {
       id: "number-2",
       icon: FiHome,
       emoji: "🏡",
       number: "190+",
-      label: "houses delivered",
-      description: "From emergency shelter to permanent housing solutions",
+      label: "uylar topshirildi",
+      description: "Favqulodda boshpana berishdan tortib, doimiy uy-joy echimlarigacha",
       fullDescription:
-        "We have delivered over 190 housing units ranging from emergency container homes to permanent brick houses. Our housing program includes the Turkey earthquake relief (160 container homes), the Buka district development (30 permanent homes), and various emergency housing interventions across Uzbekistan.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/nPQ2CghAVOc",
+        "Biz 190 dan ortiq uy-joy birliklarini, jumladan, favqulodda konteyner uylaridan tortib, doimiy g'ishtli uylarigacha yetkazib berdik. Bizning uy-joy dasturimiz Turkiya zilzilasi yordamida (160 ta konteyner uyi), Bo‘ka tumani rivojlantirish (30 ta doimiy uy) va O‘zbekiston bo‘ylab turli favqulodda uy-joy aralashuvlarini o‘z ichiga oladi.",
+      image: "https://ad-admin.qalampir.uz/uploads/TG/s_FjPrUAmWUI0deSCFxkJzqlSL8gFE3Z.jpg",
+      video: "https://www.youtube.com/watch?v=O4obsMscLH0",
     },
     {
       id: "number-3",
       icon: FiDollarSign,
       emoji: "💵",
       number: "$1.2M",
-      label: "worth of assistance",
-      description: "Direct aid value delivered to communities",
+      label: "yordam mablag'lari",
+      description: "Bevosita yordam qiymati",
       fullDescription:
-        "The total value of assistance provided includes cash transfers, in-kind donations, housing construction, medical treatments, educational support, and emergency relief. Every dollar is tracked and accounted for, with detailed reports available to donors and beneficiaries.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "Ko'rsatilgan yordamning umumiy qiymati pul o'tkazmalari, moddiy yordam, uy-joy qurilishi, tibbiy muolajalar, ta'lim yordami va favqulodda yordamni o'z ichiga oladi. Har bir dollar kuzatiladi va hisobga olinadi, donorlar va foydalanuvchilar uchun batafsil hisobotlar mavjud.",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
     },
     {
       id: "number-4",
       icon: FiClock,
       emoji: "🕐",
       number: "365/24",
-      label: "active support line",
-      description: "Round-the-clock emergency assistance available",
+      label: "faol qo'llab-quvvatlash",
+      description: "24/7 favqulodda yordam mavjud",
       fullDescription:
-        "Our emergency hotline operates 24 hours a day, 365 days a year. Trained staff respond to emergency calls, coordinate rapid response teams, and ensure that urgent cases receive immediate attention. This system has handled over 8,000 emergency calls in the past year.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/jS4aFq5-91M",
+        "Bizning favqulodda aloqa liniyamiz kuniga 24 soat, yiliga 365 kun ishlaydi. Malakali xodimlar favqulodda qo'ng'iroqlarga javob berishadi, tezkor javob berish guruhlarini muvofiqlashtiradilar va shoshilinch holatlar darhol e'tiborga olinadi. Ushbu tizim o'tgan yili 8,000 dan ortiq favqulodda qo'ng'iroqlarni qabul qildi.",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
     },
     {
       id: "number-5",
       icon: FiGlobe,
       emoji: "🌍",
       number: "13",
-      label: "regions of operation",
-      description: "Nationwide coverage across Uzbekistan",
+      label: "faoliyat yuritilayotgan hududlar",
+      description: "O'zbekiston bo'ylab keng qamrov",
       fullDescription:
-        "We operate in 13 regions of Uzbekistan, with local coordinators and volunteer networks in each area. This extensive coverage ensures that remote and underserved communities have access to our programs. Our regional approach allows for culturally sensitive and locally appropriate interventions.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/nPQ2CghAVOc",
+        "Biz O'zbekistonning 13 ta viloyatida faoliyat yuritamiz, har bir hududda mahalliy muvofiqlashtiruvchilar va ko'ngillilar tarmog'i mavjud. Ushbu keng qamrovli yondashuv chekka va yetarlicha xizmat ko'rsatilmayotgan jamoalarga bizning dasturlarimizdan foydalanish imkonini beradi. Bizning mintaqaviy yondashuvimiz madaniy jihatdan sezgir va mahalliy sharoitlarga mos keladigan aralashuvlarni ta'minlaydi.",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
     },
   ]
 
@@ -95,11 +95,11 @@ const NumbersSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            NUMBERS — "PROOF BLOCK"
+            RAQAMLAR - "Isbotli blok"
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">📊 Results in Numbers</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">📊 Natijalar Raqamlarda</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transparent, measurable impact that speaks for itself
+            Shaffof, o'lchovli ta'sir, o'zini o'zi ifodalaydi
           </p>
         </div>
 
@@ -156,7 +156,7 @@ const NumbersSection = () => {
 
                 <details className="group">
                   <summary className="text-yellow-600 hover:text-yellow-700 cursor-pointer font-medium text-sm">
-                    View details
+                    Batafsil
                   </summary>
                   <p className="text-gray-600 mt-3 text-sm leading-relaxed">{item.fullDescription}</p>
                 </details>
@@ -167,11 +167,9 @@ const NumbersSection = () => {
 
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Every Number Tells a Story</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Har bir raqam hikoya qiladi</h3>
             <p className="text-gray-600 leading-relaxed">
-              Behind every statistic is a real person whose life has been changed. These numbers represent hope
-              restored, dignity preserved, and communities strengthened. Your donation becomes part of these meaningful
-              statistics.
+              Har bir statistikada hayoti o'zgargan haqiqiy inson bor. Ushbu raqamlar tiklangan umidni, saqlangan qadr-qimmatni va mustahkamlangan jamoalarni ifodalaydi. Sizning xayriyaingiz ushbu ma'noli statistikalar bir qismiga aylanadi.
             </p>
           </div>
         </div>

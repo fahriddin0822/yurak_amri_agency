@@ -14,36 +14,44 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <div className="flex items-center cursor-pointer group mb-6" onClick={scrollToTop}>
-              <FiHeart className="h-8 w-8 text-yellow-500 group-hover:text-yellow-400 transition-colors" />
+              <div className="wrapper w-16 h-16 overflow-hidden">
+                <img src="/logo.png" alt="Logo" className="w-full h-auto object-contain" />
+              </div>
               <span className="ml-2 text-2xl font-bold group-hover:text-yellow-400 transition-colors">Yurak Amri</span>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Warming hearts and changing lives across Uzbekistan. We believe in transparency, accountability, and the
-              power of community to create lasting change.
+              O'zbekiston bo'ylab qalblarni isitmoqda va hayotni o'zgartirmoqda. Biz shaffoflik, hisobdorlik va boshqalarga ishonamiz
+              doimiy o'zgarishlarni yaratish uchun jamiyatning kuchi.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <a href="https://facebook.com/sardor.rahimxon" className="text-gray-400 hover:text-yellow-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FiFacebook className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <a href="https://instagram.com/sardor_rahimxon_official" className="text-gray-400 hover:text-yellow-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FiInstagram className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <a href="https://twitter.com/sardor1s" className="text-gray-400 hover:text-yellow-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FiTwitter className="w-6 h-6" />
               </a>
+              <a href="https://t.me/SardorRahimxonOfficial" className="text-gray-400 hover:text-yellow-500 transition-colors" target="_blank" rel="noopener noreferrer">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.97 15.38l-.39 3.44c.56 0 .81-.24 1.1-.53l2.63-2.5 5.45 3.97c1 .55 1.72.26 1.97-.92l3.58-16.6c.33-1.53-.57-2.12-1.53-1.75L1.25 10.63c-1.47.58-1.45 1.4-.26 1.78l5.6 1.75 13.02-8.22c.61-.4 1.17-.18.71.25L9.97 15.38z" />
+                </svg>
+              </a>
             </div>
+
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6">Tezkor Havolalar</h3>
             <ul className="space-y-3">
               <li>
                 <button
                   onClick={() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-gray-300 hover:text-yellow-500 transition-colors"
                 >
-                  Our Results
+                  Natijalar
                 </button>
               </li>
               <li>
@@ -59,7 +67,7 @@ const Footer = () => {
                   onClick={() => document.getElementById("campaigns")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-gray-300 hover:text-yellow-500 transition-colors"
                 >
-                  Campaigns
+                  Haqdorlar
                 </button>
               </li>
               <li>
@@ -67,7 +75,7 @@ const Footer = () => {
                   onClick={() => document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-gray-300 hover:text-yellow-500 transition-colors"
                 >
-                  Testimonials
+                  Fikrlar
                 </button>
               </li>
             </ul>
@@ -75,7 +83,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-6">Biz bilan bog'laning</h3>
             <ul className="space-y-3">
               <li className="flex items-center text-gray-300">
                 <FiPhone className="w-5 h-5 mr-3 text-yellow-500" />
@@ -90,7 +98,7 @@ const Footer = () => {
                 <span>
                   Tashkent, Uzbekistan
                   <br />
-                  Operating in 13 regions
+                  13 ta hududda faoliyat yuritamiz
                 </span>
               </li>
             </ul>
@@ -101,17 +109,17 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Yurak Amri. All rights reserved. | 100% Transparency Guaranteed
+              © 2024 Yurak Amri. Barcha huquqlar himoyalangan. | 100% Shaffoflik kafolati
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
-                Privacy Policy
+                Maxfiylik siyosati
               </a>
               <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
-                Terms of Service
+                Foydalanish shartlari
               </a>
               <a href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
-                Financial Reports
+                Moliyaviy hisobotlar
               </a>
             </div>
           </div>

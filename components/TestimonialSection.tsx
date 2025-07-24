@@ -5,25 +5,25 @@ const TestimonialSection = () => {
     {
       id: 1,
       quote:
-        "We thought we were just a family on a list. But Yurak Amri gave us humanity, honor, and hope. Now my child is going to school. Thank you.",
-      author: "Sister Mavluda",
-      location: "Fergana region",
+        "Biz faqat ro'yxatdagi oilamiz deb o'yladik. Ammo Yurak Amri bizga insoniylik, or-nomus va umid baxsh etdi. Hozir bolam maktabga boradi. Rahmat.",
+      author: "Mavluda opa",
+      location: "Farg'ona viloyati",
       image: "/placeholder.svg?height=100&width=100",
     },
     {
       id: 2,
       quote:
-        "When the earthquake destroyed our home, we lost everything. Yurak Amri didn't just give us shelter, they gave us dignity and a future for our children.",
-      author: "Karim Usmanov",
+        "Zilzila uyimizni vayron qilganda, biz hamma narsani yo'qotdik. Yurak Amri bizga shunchaki boshpana bermadi, ular bizga qadr-qimmat va farzandlarimizning kelajagini berdi.",
+      author: "Karim Usmonov",
       location: "Turkey, earthquake survivor",
       image: "/placeholder.svg?height=100&width=100",
     },
     {
       id: 3,
       quote:
-        "The monthly food packages kept our family alive during the hardest times. But more than food, you gave us hope that someone cares.",
-      author: "Gulnora Akhmedova",
-      location: "Samarkand region",
+        "Oylik oziq-ovqat paketlari eng qiyin paytlarda oilamizni tirik saqladi. Ammo oziq-ovqatdan ko'ra, siz bizga kimdir g'amxo'rlik qilayotganiga umid berdingiz.",
+      author: "Gulnora Ahmadova",
+      location: "Samarqand viloyati",
       image: "/placeholder.svg?height=100&width=100",
     },
   ]
@@ -33,11 +33,11 @@ const TestimonialSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            TESTIMONIAL / QUOTE
+            Fikrlardan iqtibos
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Voices of Hope</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Umid ovozlari</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real stories from the families whose lives have been transformed through your generosity
+            Sizning xayriyangiz orqali hayotlari o'zgargan oilalardan haqiqiy hikoyalar
           </p>
         </div>
 
@@ -72,18 +72,18 @@ const TestimonialSection = () => {
           <div className="bg-white rounded-3xl shadow-xl p-12 text-center animate-scale-in">
             <div className="text-yellow-500 text-8xl mb-6 font-serif">"</div>
             <blockquote className="text-2xl md:text-3xl text-gray-800 leading-relaxed mb-8 italic font-light">
-              We thought we were just a family on a list. But Yurak Amri gave us humanity, honor, and hope. Now my child
-              is going to school. Thank you.
+             Biz faqat ro'yxatdagi oilamiz deb o'yladik. Ammo Yurak Amri bizga insoniylik, or-nomus va umid baxsh etdi. Endi bolam 
+maktabga ketyapti. Rahmat.
             </blockquote>
             <div className="flex items-center justify-center">
               <img
                 src="/placeholder.svg?height=80&width=80"
-                alt="Sister Mavluda"
+                alt="Mavluda opa"
                 className="w-20 h-20 rounded-full object-cover mr-6"
               />
               <div className="text-left">
-                <div className="text-xl font-semibold text-gray-900">— Sister Mavluda</div>
-                <div className="text-gray-500">Fergana region</div>
+                <div className="text-xl font-semibold text-gray-900">— Mavluda opa</div>
+                <div className="text-gray-500">Farg'ona viloyati</div>
               </div>
             </div>
           </div>
