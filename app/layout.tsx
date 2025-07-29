@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Yurak Amri - Charity Platform",
+  title: "Yurak Amri",
   description: "A platform for charitable donations and community support",
     generator: 'v0.dev'
 }

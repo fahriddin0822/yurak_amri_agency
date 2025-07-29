@@ -1,20 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { FiHeart, FiUsers, FiHome, FiDollarSign } from "react-icons/fi"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import dynamic from "next/dynamic"
+
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false })
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsOpen(false)
-  }
-
   const slides = [
     {
       title: "Bugun bir yurakka iliqlik bering.",
@@ -22,6 +14,7 @@ const Hero = () => {
       description:
         "Oʻzbekiston boʻylab jamiyatlarda oʻzgarishlarni amalga oshirayotgan minglab odamlarga qoʻshiling. Har bir xayriya umid uyg'otadi.",
       image: "https://storage.kun.uz/source/6/RlWmyIAIe6JJGzOq3GHMJZJPd0EtBOPE.jpg",
+      video: "https://www.youtube.com/embed/xOdrr5KdX6U",
     },
     {
       title: "Uylar qurish, umid qurish",
@@ -29,90 +22,140 @@ const Hero = () => {
       description:
         "Turkiyadagi zilzila oqibatlarini bartaraf etishdan tortib doimiy turar joy yechimlarigacha, biz oilalar uchun xavfsiz joylar yaratmoqdamiz.",
       image: "https://idsb.tmgrup.com.tr/ly/uploads/images/2020/11/27/75338.jpg",
+      video: "https://www.youtube.com/embed/xOdrr5KdX6U",
     },
     {
       title: "15 000+ oila.",
       subtitle: "Biz doim yordamga muhtoj oilalarni ro'yhatga olib boramiz va ularning soni hozirda 15 000 dan oshdi.",
       description: "Yordam uchun albatta haqiaqiy haqdorlarni tanlab olamiz.",
       image: "./hero.jpeg",
+      video: "https://www.youtube.com/embed/xOdrr5KdX6U",
     },
   ]
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [slides.length])
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [typedTitle, setTypedTitle] = useState("")
+  const [typedSubtitle, setTypedSubtitle] = useState("")
+  const [typedDescription, setTypedDescription] = useState("")
+  const [showModal, setShowModal] = useState(false)
 
-  const stats = [
-    { icon: FiUsers, number: "15,200+", label: "Oilalarga yordam" },
-    { icon: FiHome, number: "190+", label: "Uylar qurildi" },
-    { icon: FiDollarSign, number: "$1.2M", label: "Yig'ilgan hayriya" },
-    { icon: FiHeart, number: "24/7", label: "Qo'llab-quvvatlash mavjud" },
-  ]
+  useEffect(() => {
+    let titleTimeout: any, subtitleTimeout: any, descTimeout: any
+
+    const typeText = (
+      text: string,
+      setter: React.Dispatch<React.SetStateAction<string>>,
+      delay: number
+    ) => {
+      setter("")
+      for (let i = 0; i <= text.length; i++) {
+        setTimeout(() => {
+          setter((prev) => text.slice(0, i))
+        }, delay * i)
+      }
+    }
+
+    const slide = slides[currentSlide]
+
+    typeText(slide.title, setTypedTitle, 25)
+    titleTimeout = setTimeout(() => {
+      typeText(slide.subtitle, setTypedSubtitle, 10)
+    }, slide.title.length * 25)
+    subtitleTimeout = setTimeout(() => {
+      typeText(slide.description, setTypedDescription, 6)
+    }, slide.title.length * 25 + slide.subtitle.length * 10)
+
+    const autoAdvance = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 8000)
+
+    return () => {
+      clearTimeout(titleTimeout)
+      clearTimeout(subtitleTimeout)
+      clearTimeout(descTimeout)
+      clearTimeout(autoAdvance)
+    }
+  }, [currentSlide])
+
+  const openModal = () => setShowModal(true)
+  const closeModal = () => setShowModal(false)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-4">
-      {/* Background Slider */}
-      <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img src={slide.image || "https://i.ytimg.com/vi/DrJNKNju_c0/maxresdefault.jpg"} alt={slide.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/50" />
-          </div>
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">{slides[currentSlide].title}</h1>
-          <p className="text-xl md:text-2xl text-yellow-400 mb-4 font-medium">{slides[currentSlide].subtitle}</p>
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">{slides[currentSlide].description}</p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg" onClick={() => scrollToSection("campaigns")}>
-              Hayriya qilish
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold transition-all">
-              Batafsil tanishish
-            </button>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-slide-up">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/20 rounded-full mb-4">
-                <stat.icon className="w-8 h-8 text-yellow-400" />
-              </div>
-              <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
+    <>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-4">
+        <div className="wrapper flex flex-col md:flex-row w-full max-w-7xl px-4">
+          {/* LEFT */}
+          <div className="left w-full md:w-1/2 space-y-2 text-center md:text-left">
+            <div className="h-[160px] overflow-hidden">
+              <h1 className="font-bold text-[clamp(1.75rem,5vw,3rem)] text-black">
+                {typedTitle}
+                {/* <span className="inline-block ml-1 animate-blinkCenter origin-center">|</span> */}
+              </h1>
             </div>
-          ))}
-        </div>
-      </div>
+            <div className="h-[80px] overflow-hidden">
+              <p className="text-yellow-400 font-medium text-[clamp(1.25rem,3vw,1.75rem)]">
+                {typedSubtitle}
+                {/* <span className="inline-block ml-1 text-yellow-400 animate-blinkCenter origin-center">|</span> */}
+              </p>
+            </div>
+            <div className="h-[120px] overflow-hidden">
+              <p className="text-gray-600 text-[clamp(1rem,2vw,1.25rem)]">
+                {typedDescription}
+                <span className="inline-block ml-1 text-gray-600 animate-blinkCenter origin-center">|</span>
+              </p>
+            </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? "bg-yellow-500" : "bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
-    </section>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start justify-center sm:justify-start">
+              <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                Hayriya qilish
+              </button>
+              <button className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all">
+                Batafsil tanishish
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT with Play Button */}
+          <div className="right w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 relative">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slides[currentSlide].image}
+                src={slides[currentSlide].image}
+                alt="Slide Image"
+                className="object-fill rounded-xl shadow-lg w-full max-w-lg"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.8 }}
+              />
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.button
+                key={currentSlide} // use slide index as key
+                onClick={openModal}
+                className="absolute z-10 flex items-center justify-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.9 }}
+              >
+                <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-white w-16 h-16 flex items-center justify-center">
+                  ▶
+                </div>
+              </motion.button>
+            </AnimatePresence>
+
+          </div>
+        </div>
+      </section>
+
+      {showModal && (
+        <VideoPlayer
+          videoUrl={slides[currentSlide].video}
+          onClose={closeModal}
+        />
+      )}
+    </>
   )
 }
 
