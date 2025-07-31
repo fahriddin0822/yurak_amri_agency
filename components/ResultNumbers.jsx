@@ -42,7 +42,7 @@ const ResultNumbers = () => {
                             },
                             {
                                 name: "Dilshoda",
-                                text: "Yurak amrida berish men va erim uchun juda ijobiy bo'ldi. Men haqiqatan ham bizning saxiyligimizdan foyda ko'rgan odamlarni ko'rishni yaxshi ko'raman.",
+                                text: "Yurak amri men va erim uchun juda ijobiy bo'ldi. Men haqiqatan ham bizning saxiyligimizdan foyda ko'rgan odamlarni ko'rishni yaxshi ko'raman.",
                                 image: "https://unsdg.un.org/sites/default/files/styles/hero_header_2xl_1x/public/2023-03/Ziynegul.JPG?itok=FdKh0UNZ",
                             },
                         ].map((item, i) => (
