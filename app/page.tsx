@@ -7,12 +7,15 @@ import FeaturedCampaigns from "@/components/FeaturedCampaigns"
 import TestimonialSection from "@/components/TestimonialSection"
 import CTASection from "@/components/CTASection"
 import Footer from "@/components/Footer"
+import { Result } from "postcss"
+import ResultNumbers from "@/components/ResultNumbers"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <ResultNumbers />
       <ResultsSection />
       <PortfolioSection />
       <NumbersSection />

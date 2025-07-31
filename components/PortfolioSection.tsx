@@ -63,31 +63,6 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            Portfolio / Bizining ishlarimiz
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nimalar qildik?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">160</div>
-              <div className="text-gray-600">Konteyner uylar</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">30</div>
-              <div className="text-gray-600">"25+" Jannatdagi qasrlar</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">15,000+</div>
-              <div className="text-gray-600">Yordam ro'yxatidagi oilalar</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">$1M+</div>
-              <div className="text-gray-600">3 yil ichida olingan xayriya</div>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-16">
           {portfolioItems.map((item, index) => (
             <div

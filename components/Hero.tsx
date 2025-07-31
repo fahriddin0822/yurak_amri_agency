@@ -87,7 +87,7 @@ const Hero = () => {
           {/* LEFT */}
           <div className="left w-full md:w-1/2 space-y-2 text-center md:text-left">
             <div className="h-[160px] overflow-hidden">
-              <h1 className="font-bold text-[clamp(1.75rem,5vw,3rem)] text-black">
+              <h1 className="font-bold text-[clamp(1.75rem,5vw,3rem)] text-gray-900">
                 {typedTitle}
               </h1>
             </div>
@@ -104,45 +104,47 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start justify-center sm:justify-start">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+              <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 hover:text-gray-950 px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
                 Hayriya qilish
               </button>
-              <button className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all">
+              <button className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all">
                 Batafsil tanishish
               </button>
             </div>
           </div>
 
           {/* RIGHT with Play Button */}
-          <div className="right w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 relative">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={slides[currentSlide].image}
-                src={slides[currentSlide].image}
-                alt="Slide Image"
-                className="object-cover rounded-xl shadow-lg max-w-lg h-full"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.8 }}
-              />
-            </AnimatePresence>
-            <AnimatePresence mode="wait">
-              <motion.button
-                key={currentSlide} // use slide index as key
-                onClick={openModal}
-                className="absolute z-10 flex items-center justify-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.9 }}
-              >
-                <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-white w-16 h-16 flex items-center justify-center">
-                  ▶
-                </div>
-              </motion.button>
-            </AnimatePresence>
+          <div className="right w-full md:w-1/2 flex justify-end items-center mt-10 md:mt-0 relative">
+            <div className="relative w-full max-w-xl">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={slides[currentSlide].image}
+                  src={slides[currentSlide].image}
+                  alt="Slide Image"
+                  className="w-full h-auto object-contain rounded-xl shadow-lg"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </AnimatePresence>
 
+              <AnimatePresence mode="wait">
+                <motion.button
+                  key={currentSlide}
+                  onClick={openModal}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.9 }}
+                >
+                  <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-yellow-600 w-16 h-16 flex items-center justify-center">
+                    ▶
+                  </div>
+                </motion.button>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>

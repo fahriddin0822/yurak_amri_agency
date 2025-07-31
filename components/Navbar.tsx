@@ -57,7 +57,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
         scrolled || isOpen
-          ? "bg-white/95 backdrop-blur-md shadow-lg h-20"
+          ? "bg-white/95 backdrop-blur-md shadow-md h-20"
           : "bg-transparent h-32"
       }`}
     >
@@ -104,7 +104,7 @@ const Navbar = () => {
             <button
               onClick={() => scrollToSection("donate")}
               className={`ml-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full transition-all transform hover:scale-105 duration-500 ${
-                scrolled ? "text-sm px-5 py-2" : "text-xl px-10 py-3 -translate-x-10"
+                scrolled ? "text-sm px-5 py-2" : "text-xl px-10 py-3 font-bold"
               }`}
             >
               Hayriya

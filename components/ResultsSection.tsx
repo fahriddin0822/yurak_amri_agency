@@ -1,10 +1,14 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
+import dynamic from "next/dynamic"
 import { FiPlay, FiPause } from "react-icons/fi"
+
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false })
 
 const ResultsSection = () => {
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
+  const [showModal, setShowModal] = useState(false)
   const [expandedStory, setExpandedStory] = useState<string | null>(null)
 
   const results = [
@@ -37,9 +41,15 @@ const ResultsSection = () => {
     },
   ]
 
-  const playVideo = (videoId: string) => setCurrentVideo(videoId)
-  const pauseVideo = () => setCurrentVideo(null)
+  const playVideo = (videoId: string) => {
+    setCurrentVideo(videoId)
+    setShowModal(true)
+  }
 
+  const pauseVideo = () => {
+    setCurrentVideo(null)
+    setShowModal(false)
+  }
 
   const toggleStory = (resultId: string) => {
     setExpandedStory(expandedStory === resultId ? null : resultId)
@@ -84,31 +94,21 @@ const ResultsSection = () => {
 
                 {/* Video Player */}
                 <div className="absolute inset-0 bg-black/20">
-                  {currentVideo === result.id ? (
-                    <iframe
-                      src={getYouTubeEmbedUrl(result.video)}
-                      className="w-full h-64"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  ) : (
-                    <>
-                      <img
-                        src={result.image || "/placeholder.svg"}
-                        alt={result.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <button
-                          onClick={() => playVideo(result.id)}
-                          className="bg-yellow-500 hover:bg-yellow-600 text-white p-4 rounded-full transition-all transform hover:scale-110 shadow-lg"
-                        >
-                          <FiPlay className="w-8 h-8 ml-1" />
-                        </button>
+                  <img
+                    src={result.image || "/placeholder.svg"}
+                    alt={result.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button
+                      onClick={() => playVideo(getYouTubeEmbedUrl(result.video))}
+                      className="rounded-full transition-all transform hover:scale-110 shadow-lg"
+                    >
+                      <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-yellow-600 w-16 h-16 flex items-center justify-center">
+                        ▶
                       </div>
-                    </>
-                  )}
+                    </button>
+                  </div>
                 </div>
 
                 {currentVideo === result.id && (
@@ -144,6 +144,9 @@ const ResultsSection = () => {
           ))}
         </div>
       </div>
+      {showModal && currentVideo && (
+        <VideoPlayer videoUrl={currentVideo} onClose={pauseVideo} />
+      )}
     </section>
   )
 }
