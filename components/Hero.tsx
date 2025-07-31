@@ -89,13 +89,11 @@ const Hero = () => {
             <div className="h-[160px] overflow-hidden">
               <h1 className="font-bold text-[clamp(1.75rem,5vw,3rem)] text-black">
                 {typedTitle}
-                {/* <span className="inline-block ml-1 animate-blinkCenter origin-center">|</span> */}
               </h1>
             </div>
             <div className="h-[80px] overflow-hidden">
               <p className="text-yellow-400 font-medium text-[clamp(1.25rem,3vw,1.75rem)]">
                 {typedSubtitle}
-                {/* <span className="inline-block ml-1 text-yellow-400 animate-blinkCenter origin-center">|</span> */}
               </p>
             </div>
             <div className="h-[120px] overflow-hidden">
@@ -122,7 +120,7 @@ const Hero = () => {
                 key={slides[currentSlide].image}
                 src={slides[currentSlide].image}
                 alt="Slide Image"
-                className="object-fill rounded-xl shadow-lg w-full max-w-lg"
+                className="object-cover rounded-xl shadow-lg max-w-lg h-full"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}

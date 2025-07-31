@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FiMenu, FiX, FiHeart } from "react-icons/fi"
+import { FiMenu, FiX } from "react-icons/fi"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
+  // Lock scroll on mobile menu
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto"
     return () => {
@@ -14,6 +15,7 @@ const Navbar = () => {
     }
   }, [isOpen])
 
+  // Toggle scrolled state
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -22,6 +24,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Close mobile menu on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element
@@ -39,11 +42,9 @@ const Navbar = () => {
     }
   }, [isOpen])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: "smooth" })
     setIsOpen(false)
   }
 
@@ -54,120 +55,102 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled || isOpen
-        ? "bg-white/95 backdrop-blur-md shadow-lg"
-        : "bg-transparent"
-        }`}
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
+        scrolled || isOpen
+          ? "bg-white/95 backdrop-blur-md shadow-lg h-20"
+          : "bg-transparent h-32"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer group" onClick={scrollToTop}>
-            <div className="wrapper w-16 h-16 overflow-hidden">
-              <img src="/logo.png" alt="Logo" className="w-full h-auto object-contain" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex justify-between items-center h-full transition-all duration-500">
+          {/* Logo + Text */}
+          <div
+            onClick={scrollToTop}
+            className={`flex items-center cursor-pointer group transition-all duration-500 ${scrolled ? '' : '-translate-x-7'}`}
+          >
+            <div
+              className={`transition-all duration-500 ${
+                scrolled ? "w-12 h-12" : "w-16 h-16"
+              }`}
+            >
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
-
             <span
-              className={`ml-2 text-xl font-bold transition-colors group-hover:text-yellow-600 text-gray-900"
-                }`}
+              className={`ml-2 font-bold transition-all duration-500 text-gray-900 group-hover:text-yellow-600 ${
+                scrolled ? "text-lg" : "text-2xl"
+              }`}
             >
               Yurak Amri
             </span>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <button
-                onClick={() => scrollToSection("results")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 text-gray-700"
-                  }`}
-              >
-                Natijalar
-              </button>
-              <button
-                onClick={() => scrollToSection("portfolio")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 text-gray-700"
-                  }`}
-              >
-                Portfolio
-              </button>
-              <button
-                onClick={() => scrollToSection("campaigns")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 text-gray-700"
-                  }`}
-              >
-                Haqdorlar
-              </button>
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 text-gray-700"
-                  }`}
-              >
-                Sharhlar
-              </button>
-              <button
-                onClick={() => scrollToSection("donate")}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105"
-              >
-                Hayriya
-              </button>
+          <div className="hidden md:flex items-center space-x-4 ml-auto">
+            {/* Extra buttons - only on scroll */}
+            <div
+              className={`flex items-baseline space-x-6 transition-all duration-500 ${
+                scrolled
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-2 pointer-events-none"
+              }`}
+            >
+              <button onClick={() => scrollToSection("results")} className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">Natijalar</button>
+              <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">Portfolio</button>
+              <button onClick={() => scrollToSection("campaigns")} className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">Haqdorlar</button>
+              <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-gray-700 hover:text-yellow-600 transition-colors">Sharhlar</button>
             </div>
+
+            {/* Hayriya button - always visible */}
+            <button
+              onClick={() => scrollToSection("donate")}
+              className={`ml-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full transition-all transform hover:scale-105 duration-500 ${
+                scrolled ? "text-sm px-5 py-2" : "text-xl px-10 py-3 -translate-x-10"
+              }`}
+            >
+              Hayriya
+            </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`menu-button inline-flex items-center justify-center p-2 rounded-md transition-colors hover:text-yellow-600 hover:bg-gray-100 text-gray-700
-                }`}
+              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-yellow-600 hover:bg-gray-100 transition-colors"
             >
-              {isOpen ? <FiX className="block h-6 w-6" /> : <FiMenu className="block h-6 w-6" />}
+              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {/* Mobile Menu (always rendered) */}
       <div
-        className={`fixed top-16 right-0 h-[calc(100vh-4rem)] w-[70vw] z-40 transform transition-transform duration-300 ease-in-out bg-white/95 shadow-lg md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-20 right-0 h-[calc(100vh-5rem)] w-[70vw] z-40 transform transition-transform duration-300 ease-in-out bg-white/95 shadow-lg md:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="mobile-menu h-full px-4 py-6 space-y-4 flex flex-col">
-          <button
-            onClick={() => scrollToSection("results")}
-            className="text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50 rounded-md transition-colors"
-          >
-            Natijalar
-          </button>
-          <button
-            onClick={() => scrollToSection("portfolio")}
-            className="text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50 rounded-md transition-colors"
-          >
-            Portfolio
-          </button>
-          <button
-            onClick={() => scrollToSection("campaigns")}
-            className="text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50 rounded-md transition-colors"
-          >
-            Haqdorlar
-          </button>
-          <button
-            onClick={() => scrollToSection("testimonials")}
-            className="text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50 rounded-md transition-colors"
-          >
-            Sharhlar
-          </button>
-          <button
-            onClick={() => scrollToSection("donate")}
-            className="text-left px-3 py-2 text-base font-medium bg-yellow-500 text-white hover:bg-yellow-600 rounded-md transition-colors"
-          >
-            Hayriya
-          </button>
+          {["results", "portfolio", "campaigns", "testimonials", "donate"].map((section, index) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`text-left px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                section === "donate"
+                  ? "bg-yellow-500 text-white hover:bg-yellow-600"
+                  : "text-gray-700 hover:text-yellow-600 hover:bg-gray-50"
+              }`}
+            >
+              {{
+                results: "Natijalar",
+                portfolio: "Portfolio",
+                campaigns: "Haqdorlar",
+                testimonials: "Sharhlar",
+                donate: "Hayriya",
+              }[section]}
+            </button>
+          ))}
         </div>
       </div>
-
     </nav>
   )
 }
