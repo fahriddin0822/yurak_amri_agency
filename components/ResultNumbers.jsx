@@ -22,8 +22,8 @@ const ResultNumbers = () => {
             </div>
 
             {/* Comments Section */}
-            <div className="wrapper bg-gray-50 pb-20">
-                <div className="wrapper bg-white rounded-br-3xl rounded-bl-3xl shadow-sm p-8 max-w-6xl mx-auto">
+            <div className="wrapper bg-gray-50 pb-20 ">
+                <div className="wrapper bg-white rounded-br-3xl rounded-bl-3xl shadow-sm p-8 w-full max-w-6xl mx-auto px-4">
                     <h2 className="text-xl font-sans text-gray-900 tracking-wider mb-10 uppercase">
                         Jamoamizga qo'shiling
                     </h2>
