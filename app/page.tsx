@@ -18,7 +18,6 @@ export default function Home() {
       <ResultNumbers />
       <ResultsSection />
       <PortfolioSection />
-      <NumbersSection />
       <FeaturedCampaigns />
       <TestimonialSection />
       <CTASection />

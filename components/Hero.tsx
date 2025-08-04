@@ -82,7 +82,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 lg:px-24 pt-24 sm:pt-28 md:pt-36">
+      <section className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 lg:px-20 pt-24 sm:pt-28 md:pt-36">
         <div className="wrapper w-full max-w-7xl mx-auto flex flex-col md:flex-row">
           {/* LEFT */}
           <div className="left w-full md:w-1/2 space-y-4 text-center md:text-left">

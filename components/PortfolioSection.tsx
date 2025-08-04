@@ -1,53 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { FiPlay, FiPause, FiHome, FiUsers } from "react-icons/fi"
+import dynamic from "next/dynamic"
+import { FiPlay, FiHome, FiUsers } from "react-icons/fi"
 
-const PortfolioSection = () => {
-  const [currentVideo, setCurrentVideo] = useState<string | null>(null)
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false })
 
-  const portfolioItems = [
-    {
-      id: "portfolio-1",
-      title: "Turkiya zilziladan yordam",
-      description: "160 konteyner uylar zilziladan zarar ko'rgan hududlarda qurilgan",
-      fullDescription:
-        "Turkiyadagi vayronkor zilzilaga javoban, biz uy-joy bilan bog'liq zudlik bilan yechimlarni taqdim etish uchun tezda safarbar etdik. Mahalliy hokimiyat organlari va xalqaro hamkorlar bilan hamkorlikda biz 160 ta to‘liq jihozlangan konteyner uylarini qurib, 640 dan ortiq kishini xavfsiz va munosib uy-joy bilan ta’minladik. Har bir birlik asosiy qulayliklarni, isitishni o'z ichiga oladi va uzoq muddatli foydalanish uchun mo'ljallangan.",
-      image: "https://www.toplum.org.tr/en/wp-content/uploads/2024/10/Konteyner-Kentte-Yasam.jpg",
-      video: "https://www.youtube.com/watch?v=8zVEYhUNayg",
-      stats: { icon: FiHome, number: "160", label: "Uylar qurildi" },
-    },
-    {
-      id: "portfolio-2",
-      title: "25+ Jannatdagi qasrlar",
-      description: "Bo‘ka tumanida 30 uy-joy qurilishi",
-      fullDescription:
-        "“25+” loyihasi barqaror uy-joy yechimlariga sodiqligimizni ifodalaydi. Bo‘ka tumanida joylashgan 30 xonadondan iborat ushbu qurilish 25 oydan ortiq vaqt davomida yordam ro‘yxatida bo‘lgan oilalar uchun doimiy uy-joy bilan ta’minlaydi. Har bir xonadon ikki xonali, zamonaviy qulayliklarga ega, ekologik toza materiallardan foydalangan holda qurilgan va avlodlar uchun mo'ljallangan.",
-      image: "/jannatdagi_qasrlar.png",
-      video: "https://www.youtube.com/watch?v=fxE4Bb65wcc&t=56s",
-      stats: { icon: FiUsers, number: "30", label: "Dan ziyod oilalar joylashtirildi" },
-    },
-    {
-      id: "portfolio-3",
-      title: "Doimiy yordam tarmog'i",
-      description: "15,000+ oilalar doimiy yordam olmoqda",
-      fullDescription:
-        "Bizning doimiy yordam ro'yxatimiz oziq-ovqat paketlari, tibbiy yordam, ta'lim yordami va favqulodda yordamni o'z ichiga olgan muntazam oylik yordam oladigan oilalarni ifodalaydi. Ushbu tizimli yondashuv 13 ta viloyatda eng zaif oilalarga doimiy yordam ko'rsatishni ta'minlaydi va oilalar ishonishi mumkin bo'lgan xavfsizlik tarmog'ini yaratadi.",
-      image: "/oilalar_doimiy_yordam_olmoqda.png",
-      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
-      stats: { icon: FiUsers, number: "15,000+", label: "Oilalar doimiy yordam olmoqda" },
-    },
-  ]
-
-  const playVideo = (videoId: string) => {
-    setCurrentVideo(videoId)
-  }
-
-  const pauseVideo = () => {
-    setCurrentVideo(null)
-  }
-
-  const getYouTubeEmbedUrl = (url: string) => {
+const getYouTubeEmbedUrl = (url: string) => {
+  try {
     if (url.includes("youtube.com/watch?v=")) {
       const videoId = url.split("v=")[1].split("&")[0]
       return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`
@@ -58,7 +18,58 @@ const PortfolioSection = () => {
       return url.includes("?") ? `${url}&autoplay=1&mute=0` : `${url}?autoplay=1&mute=0`
     }
     return url
+  } catch {
+    return url
   }
+}
+
+
+const PortfolioSection = () => {
+  const [currentVideo, setCurrentVideo] = useState<string | null>(null)
+  const [showModal, setShowModal] = useState(false)
+
+  const playVideo = (videoUrl: string) => {
+  const embedUrl = getYouTubeEmbedUrl(videoUrl)
+  setCurrentVideo(embedUrl)
+  setShowModal(true)
+}
+
+
+  const pauseVideo = () => {
+    setCurrentVideo(null)
+    setShowModal(false)
+  }
+
+  const portfolioItems = [
+    {
+      id: "portfolio-1",
+      title: "Turkiya zilziladan yordam",
+      description: "160 konteyner uylar zilziladan zarar ko'rgan hududlarda qurilgan",
+      fullDescription:
+        "Turkiyadagi vayronkor zilzilaga javoban, biz uy-joy bilan bog'liq zudlik bilan yechimlarni taqdim etish uchun tezda safarbar etdik...",
+      image: "https://www.toplum.org.tr/en/wp-content/uploads/2024/10/Konteyner-Kentte-Yasam.jpg",
+      video: "https://www.youtube.com/watch?v=8zVEYhUNayg",
+      stats: { icon: FiHome, number: "160", label: "Uylar qurildi" },
+    },
+    {
+      id: "portfolio-2",
+      title: "25+ Jannatdagi qasrlar",
+      description: "Bo‘ka tumanida 30 uy-joy qurilishi",
+      fullDescription: "...",
+      image: "/jannatdagi_qasrlar.png",
+      video: "https://www.youtube.com/watch?v=fxE4Bb65wcc&t=56s",
+      stats: { icon: FiUsers, number: "30", label: "Dan ziyod oilalar joylashtirildi" },
+    },
+    {
+      id: "portfolio-3",
+      title: "Doimiy yordam tarmog'i",
+      description: "15,000+ oilalar doimiy yordam olmoqda",
+      fullDescription: "...",
+      image: "/oilalar_doimiy_yordam_olmoqda.png",
+      video: "https://www.youtube.com/watch?v=RekrhtL0ej4",
+      stats: { icon: FiUsers, number: "15,000+", label: "Oilalar doimiy yordam olmoqda" },
+    },
+  ]
 
   return (
     <section id="portfolio" className="py-20 bg-white">
@@ -67,46 +78,27 @@ const PortfolioSection = () => {
           {portfolioItems.map((item, index) => (
             <div
               key={item.id}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } items-center gap-12 animate-slide-up`}
+              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } items-center gap-12 animate-slide-up`}
               style={{ animationDelay: `${index * 0.3}s` }}
             >
               <div className="flex-1">
                 <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                  {currentVideo === item.id ? (
-                    <div className="relative">
-                      <iframe
-                        src={getYouTubeEmbedUrl(item.video)}
-                        className="w-full h-80"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                      <button
-                        onClick={pauseVideo}
-                        className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      >
-                        <FiPause className="w-4 h-4" />
-                      </button>
-                    </div>
-                  ) : (
-                    <>
-                      <img
-                        src={item.image || "/placeholder.svg"}
-                        alt={item.title}
-                        className="w-full h-80 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                        <button
-                          onClick={() => playVideo(item.id)}
-                          className="bg-yellow-500 hover:bg-yellow-600 text-white p-4 rounded-full transition-all transform hover:scale-110 shadow-lg"
-                        >
-                          <FiPlay className="w-8 h-8 ml-1" />
-                        </button>
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <button
+                      onClick={() => playVideo(getYouTubeEmbedUrl(item.video))}
+                      className="rounded-full transition-all transform hover:scale-110 shadow-lg"
+                    >
+                      <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-yellow-600 w-16 h-16 flex items-center justify-center">
+                        ▶
                       </div>
-                    </>
-                  )}
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -129,6 +121,10 @@ const PortfolioSection = () => {
           </div>
         </div>
       </div>
+
+      {showModal && currentVideo && (
+        <VideoPlayer videoUrl={currentVideo} onClose={pauseVideo} />
+      )}
     </section>
   )
 }

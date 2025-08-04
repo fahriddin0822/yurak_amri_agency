@@ -2,7 +2,7 @@ const ResultNumbers = () => {
     return (
         <div className="text-center animate-fade-in mt-20 max-w-screen mx-auto">
             {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-6">
                 <div className="text-center">
                     <div className="text-4xl font-bold text-yellow-600 mb-2">160</div>
                     <div className="text-gray-600 text-md">Konteyner uylar</div>
@@ -22,13 +22,13 @@ const ResultNumbers = () => {
             </div>
 
             {/* Comments Section */}
-            <div className="wrapper bg-gray-50 pb-20 ">
-                <div className="wrapper bg-white rounded-br-3xl rounded-bl-3xl shadow-sm p-8 w-full max-w-6xl mx-auto px-4">
+            <div className="wrapper bg-gray-50 pb-20">
+                <div className="wrapper bg-white rounded-br-3xl rounded-bl-3xl shadow-sm p-12 w-full max-w-7xl mx-auto">
                     <h2 className="text-xl font-sans text-gray-900 tracking-wider mb-10 uppercase">
                         Jamoamizga qo'shiling
                     </h2>
 
-                    <div className="grid gap-10 grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto px-12">
+                    <div className="grid gap-10 grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto">
                         {[
                             {
                                 name: "Jamila",
