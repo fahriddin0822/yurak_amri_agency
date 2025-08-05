@@ -8,15 +8,15 @@ const TestimonialSection = () => {
         "Biz faqat ro'yxatdagi oilamiz deb o'yladik. Ammo Yurak Amri bizga insoniylik, or-nomus va umid baxsh etdi. Hozir bolam maktabga boradi. Rahmat.",
       author: "Mavluda opa",
       location: "Farg'ona viloyati",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://thumbs.dreamstime.com/b/person-icon-flat-style-man-symbol-person-icon-flat-style-man-symbol-isolated-white-background-simple-people-abstract-icon-118611127.jpg",
     },
     {
       id: 2,
       quote:
         "Zilzila uyimizni vayron qilganda, biz hamma narsani yo'qotdik. Yurak Amri bizga shunchaki boshpana bermadi, ular bizga qadr-qimmat va farzandlarimizning kelajagini berdi.",
       author: "Karim Usmonov",
-      location: "Turkey, earthquake survivor",
-      image: "/placeholder.svg?height=100&width=100",
+      location: "Turkiya",
+      image: "https://thumbs.dreamstime.com/b/person-icon-flat-style-man-symbol-person-icon-flat-style-man-symbol-isolated-white-background-simple-people-abstract-icon-118611127.jpg",
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const TestimonialSection = () => {
         "Oylik oziq-ovqat paketlari eng qiyin paytlarda oilamizni tirik saqladi. Ammo oziq-ovqatdan ko'ra, siz bizga kimdir g'amxo'rlik qilayotganiga umid berdingiz.",
       author: "Gulnora Ahmadova",
       location: "Samarqand viloyati",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://thumbs.dreamstime.com/b/person-icon-flat-style-man-symbol-person-icon-flat-style-man-symbol-isolated-white-background-simple-people-abstract-icon-118611127.jpg",
     },
   ]
 
@@ -77,7 +77,7 @@ maktabga ketyapti. Rahmat.
             </blockquote>
             <div className="flex items-center justify-center">
               <img
-                src="/placeholder.svg?height=80&width=80"
+                src="https://thumbs.dreamstime.com/b/person-icon-flat-style-man-symbol-person-icon-flat-style-man-symbol-isolated-white-background-simple-people-abstract-icon-118611127.jpg"
                 alt="Mavluda opa"
                 className="w-20 h-20 rounded-full object-cover mr-6"
               />

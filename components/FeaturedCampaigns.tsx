@@ -35,8 +35,8 @@ const FeaturedCampaigns = () => {
       description: "200 ta ko'chirilgan oilalar uchun iliq kiyim, isitish va boshpana ta'minlash.",
       fullDescription:
         "Sirdaryo viloyatidagi so'nggi toshqinlar 200 dan ortiq oilani ko'chirishga majbur qildi, ularni qish yaqinlashganda yetarli boshpanasiz qoldirdi. Ushbu oilalar zudlik bilan iliq kiyim, ko'rpa-to'shak, portativ isitgichlar va vaqtinchalik boshpana materiallariga muhtoj. Favqulodda yordam ko'rsatish guruhi tayyor, lekin har bir oilaga kompleks qishki yordam paketlarini taqdim etish uchun sizning yordamingiz kerak.",
-      image: "/placeholder.svg?height=400&width=600",
-      video: "/placeholder.mp4?query=winter relief distribution",
+      image: "https://i.ytimg.com/vi/BNmZUcGrMdo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBFfvWaNntDsFGoOCYuAVzcyX6pJA",
+      video: "https://www.youtube.com/watch?v=AH3s3q72kw4",
       goalAmount: 25000,
       raisedAmount: 18500,
       isCompleted: false,
@@ -50,7 +50,8 @@ const FeaturedCampaigns = () => {
       description: "Uzoq qishloqda 300 nafar bolaga xizmat qiluvchi maktabni qayta qurish.",
       fullDescription:
         "Yangiobod qishlog'idagi yagona maktab bahor toshqinlari paytida jiddiy zarar ko'rdi, 300 nafar bolani ta'limdan mahrum qoldirdi. Jamiyat vaqtincha chodir tuzilmasidan foydalanmoqda, lekin qish yaqinlashganda, biz maktabni to'g'ri sinflar, isitish va zamonaviy qulayliklar bilan qayta qurishimiz kerak. Ushbu loyiha butun avlod bolalariga ta'lim olish imkoniyatini tiklaydi.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://storage.kun.uz/source/8/SSrGbqXxCfSqBz6-smlswB1H8EbnIDzx.jpg",
+      video: "https://www.youtube.com/watch?v=AH3s3q72kw4",
       goalAmount: 45000,
       raisedAmount: 32000,
       isCompleted: false,
@@ -59,12 +60,13 @@ const FeaturedCampaigns = () => {
     },
     {
       id: "3",
-      title: "Tibbiy uskunalar uchun qishloq klinikasi",
+      title: "Tibbiy uskunalar qishloq klinikasi uchun",
       category: "Sog'liqni saqlash",
       description: "5,000 nafar aholi uchun zarur tibbiy uskunalar.",
       fullDescription:
         "Gulistondagi qishloq klinikasi 5,000 dan ortiq aholi uchun xizmat qiladi, lekin asosiy tibbiy uskunalardan mahrum. Biz ultratovush apparati, qon bosimini o'lchash moslamalari, sterilizatsiya bloki va favqulodda tibbiy yordam vositalarini taqdim etishni maqsad qilmoqdamiz. Ushbu uskunalar klinikaga yaxshiroq sog'liqni saqlash xizmatlarini ko'rsatishga va tibbiy favqulodda vaziyatlarda hayotlarni saqlashga imkon beradi.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS13bsthWj76am6SFvwVo6ePhl-Y7FuMzHKqWDVQVwvrlHarHSDPkj7544Wqy54uG0snv0&usqp=CAU",
+      video: "https://www.youtube.com/watch?v=AH3s3q72kw4",
       goalAmount: 15000,
       raisedAmount: 15000,
       isCompleted: true,
@@ -78,7 +80,8 @@ const FeaturedCampaigns = () => {
       description: "Uzoq tog' qishlog'ida 150 ta oilaga toza suv tizimini o'rnatish.",
       fullDescription:
         "Togʻtepa qishlog'idagi oilalar har kuni uzoqdan suv olib kelish uchun 3 kilometr yurishadi. Biz quyosh energiyasi bilan ishlaydigan suv nasos tizimini va taqsimot tarmog'ini o'rnatishni rejalashtirmoqdamiz, bu toza suvni to'g'ridan-to'g'ri qishloqqa olib keladi. Ushbu loyiha har kuni mehnat soatlarini tejaydi va 150 ta oila uchun xavfsiz ichimlik suvi ta'minlaydi.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://storage.kun.uz/source/8/uoiYQwDv5HLmYHyy4mMJNJ_yjMS7s-XT.jpg",
+      video: "https://www.youtube.com/watch?v=AH3s3q72kw4",
       goalAmount: 35000,
       raisedAmount: 8750,
       isCompleted: false,
@@ -154,9 +157,8 @@ const FeaturedCampaigns = () => {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-3">
                       <div
-                        className={`h-3 rounded-full progress-bar ${
-                          campaign.isCompleted ? "bg-green-500" : "bg-yellow-500"
-                        }`}
+                        className={`h-3 rounded-full progress-bar ${campaign.isCompleted ? "bg-green-500" : "bg-yellow-500"
+                          }`}
                         style={{ width: `${getProgressPercentage(campaign.raisedAmount, campaign.goalAmount)}%` }}
                       />
                     </div>
@@ -217,34 +219,49 @@ const FeaturedCampaigns = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Main Content */}
                 <div className="lg:col-span-2">
-                  <img
-                    src={selectedCampaign.image || "/placeholder.svg"}
-                    alt={selectedCampaign.title}
-                    className="w-full h-80 object-cover rounded-2xl mb-6"
-                  />
+                  {/* Responsive Image */}
+                  <div className="w-full aspect-[16/9] mb-6">
+                    <img
+                      src={selectedCampaign.image || "/placeholder.svg"}
+                      alt={selectedCampaign.title}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
+                  </div>
 
+                  {/* Category Tag */}
                   <div className="mb-4">
                     <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
                       {selectedCampaign.category}
                     </span>
                   </div>
 
-                  <h1 className="text-3xl font-bold text-gray-900 mb-4">{selectedCampaign.title}</h1>
+                  {/* Title */}
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    {selectedCampaign.title}
+                  </h1>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">{selectedCampaign.fullDescription}</p>
+                  {/* Description */}
+                  <p className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg">
+                    {selectedCampaign.fullDescription}
+                  </p>
 
-                  {/* Video if available */}
+                  {/* Responsive Video Embed */}
                   {selectedCampaign.video && (
                     <div className="mb-6">
                       <h3 className="text-xl font-bold text-gray-900 mb-4">Video lavha</h3>
-                      <div className="video-container rounded-2xl overflow-hidden">
-                        <video controls className="w-full">
-                          <source src={selectedCampaign.video} type="video/mp4" />
-                        </video>
+                      <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden">
+                        <iframe
+                          src={selectedCampaign.video.replace("watch?v=", "embed/")}
+                          title="YouTube video player"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                        ></iframe>
                       </div>
                     </div>
                   )}
                 </div>
+
 
                 {/* Sidebar */}
                 <div className="lg:col-span-1">
@@ -259,9 +276,8 @@ const FeaturedCampaigns = () => {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
                         <div
-                          className={`h-4 rounded-full progress-bar ${
-                            selectedCampaign.isCompleted ? "bg-green-500" : "bg-yellow-500"
-                          }`}
+                          className={`h-4 rounded-full progress-bar ${selectedCampaign.isCompleted ? "bg-green-500" : "bg-yellow-500"
+                            }`}
                           style={{
                             width: `${getProgressPercentage(selectedCampaign.raisedAmount, selectedCampaign.goalAmount)}%`,
                           }}

@@ -83,27 +83,27 @@ const Hero = () => {
   return (
     <>
       <section className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 lg:px-20 pt-24 sm:pt-28 md:pt-36">
-        <div className="wrapper w-full max-w-7xl mx-auto flex flex-col md:flex-row">
+        <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12">
           {/* LEFT */}
-          <div className="left w-full md:w-1/2 space-y-4 text-center md:text-left">
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
             <div className="min-h-[100px] sm:min-h-[120px] md:min-h-[160px] overflow-hidden">
               <h1 className="font-bold text-[clamp(1.75rem,5vw,3rem)] text-gray-900">
                 {typedTitle}
               </h1>
             </div>
             <div className="min-h-[60px] sm:min-h-[80px] overflow-hidden">
-              <p className="text-yellow-400 font-medium text-[clamp(1.25rem,3vw,1.75rem)]">
+              <p className="text-yellow-500 font-medium text-[clamp(1.25rem,3vw,1.75rem)]">
                 {typedSubtitle}
               </p>
             </div>
             <div className="min-h-[100px] sm:min-h-[120px] overflow-hidden">
-              <p className="text-gray-600 text-[clamp(1rem,2vw,1.25rem)]">
+              <p className="text-gray-600 text-[clamp(1rem,2vw,1.25rem)] leading-relaxed">
                 {typedDescription}
                 <span className="inline-block ml-1 text-gray-600 animate-blinkCenter origin-center">|</span>
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start justify-center sm:justify-start pb-2">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start justify-center sm:justify-start">
               <button className="border-2 border-yellow-500 hover:border-yellow-600 bg-yellow-500 hover:bg-yellow-600 text-gray-900 hover:text-gray-950 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-sm">
                 Hayriya qilish
               </button>
@@ -113,15 +113,15 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* RIGHT with Play Button */}
-          <div className="right w-full md:w-1/2 flex justify-end items-center mt-10 md:mt-0 relative">
-            <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg">
+          {/* RIGHT */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center relative">
+            <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={slides[currentSlide].image}
                   src={slides[currentSlide].image}
                   alt="Slide Image"
-                  className="w-full h-auto max-h-[400px] object-cover rounded-xl shadow-lg"
+                  className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover rounded-xl shadow-lg"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
@@ -139,7 +139,7 @@ const Hero = () => {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.9 }}
                 >
-                  <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-yellow-600 w-16 h-16 flex items-center justify-center">
+                  <div className="bg-black bg-opacity-60 rounded-full p-4 hover:scale-110 transition text-yellow-600 w-16 h-16 flex items-center justify-center text-2xl font-bold">
                     ▶
                   </div>
                 </motion.button>
